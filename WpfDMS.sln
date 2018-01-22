@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDMS", "WpfDMS\WpfDMS.csproj", "{9C929EB8-B4D8-4EBD-B5EA-417BC40C437E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDMS.BAL", "WpfDMS.BAL\WpfDMS.BAL.csproj", "{8D9E2CD8-25F1-4E28-A36E-A76817061256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDMS.DAL", "WpfDMS.DAL\WpfDMS.DAL.csproj", "{BC2F8FF2-5A59-4D6B-8C48-A7A439F5C797}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C929EB8-B4D8-4EBD-B5EA-417BC40C437E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C929EB8-B4D8-4EBD-B5EA-417BC40C437E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C929EB8-B4D8-4EBD-B5EA-417BC40C437E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C929EB8-B4D8-4EBD-B5EA-417BC40C437E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D9E2CD8-25F1-4E28-A36E-A76817061256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D9E2CD8-25F1-4E28-A36E-A76817061256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D9E2CD8-25F1-4E28-A36E-A76817061256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D9E2CD8-25F1-4E28-A36E-A76817061256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2F8FF2-5A59-4D6B-8C48-A7A439F5C797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2F8FF2-5A59-4D6B-8C48-A7A439F5C797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2F8FF2-5A59-4D6B-8C48-A7A439F5C797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2F8FF2-5A59-4D6B-8C48-A7A439F5C797}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0F23E24-A0F0-47E6-A9EC-E4F5037696E7}
+	EndGlobalSection
+EndGlobal

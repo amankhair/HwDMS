@@ -1,0 +1,78 @@
+﻿<Page x:Class="WpfDMS.View.LaboratoryTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfDMS.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="490" d:DesignWidth="750"
+      Title="LaboratoryTable">
+
+    <Grid Background="Gainsboro">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="230"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <ListView x:Name="LaboratoryList">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Path=lab_id}"/>
+                            <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Path=lab_name}"/>
+                            <GridViewColumn Header="Adress" Width="100" DisplayMemberBinding="{Binding Path=lab_adress}"/>
+                            <GridViewColumn Header="Phone" Width="80" DisplayMemberBinding="{Binding Path=lab_phone}"/>
+                            <GridViewColumn Header="LabTimings" Width="100" DisplayMemberBinding="{Binding Path=lab_timings}"/>
+                            <GridViewColumn Header="LabTests" Width="90" DisplayMemberBinding="{Binding Path=lab_tests}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+        <Grid x:Name="GridBoxes" Grid.Row="1" Margin="10" DataContext="{Binding ElementName=LaboratoryList, Path=SelectedItem}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Название</Label>
+                <TextBox x:Name="LabNameBox" Height="50" Margin="0,0,10,0" Text="{Binding Path=lab_name}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Адрес</Label>
+                <TextBox x:Name="LabAdressBox" Height="50" Margin="0,0,10,0" Text="{Binding Path=lab_adress}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Телефон</Label>
+                <TextBox x:Name="LabPhoneBox" Height="50" Margin="0,0,10,0" Text="{Binding Path=lab_phone}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Время работы</Label>
+                <TextBox x:Name="LabTimingsBox" Height="50" Margin="0,0,10,0" Text="{Binding Path=lab_timings}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Тесты</Label>
+                <TextBox x:Name="LabTestBox" Height="50" Margin="0,0,10,0" Text="{Binding Path=lab_tests}"></TextBox>
+            </StackPanel>
+
+            <Button x:Name="AddLaboratory" Grid.Row="0" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="AddLaboratory_OnClick">Добавить</Button>
+
+            <Button x:Name="DeleteLaboratory" Grid.Row="1" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="DeleteLaboratory_OnClick">Удалить</Button>
+
+            <Button x:Name="UpdateBtn" Grid.Row="2" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="UpdateBtn_OnClick">Обновить</Button>
+        </Grid>
+    </Grid>
+</Page>

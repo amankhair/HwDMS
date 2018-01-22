@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfDMS.DictionRecourses">
+
+    <ControlTemplate TargetType="Button" x:Key="BtnTemplate">
+        <Border x:Name="Border" Background="Transparent" CornerRadius="5">
+            <ContentControl x:Name="ContentControl" Foreground="Blue"
+                            FontSize="13"
+                            FontWeight="Bold"
+                            Content="{TemplateBinding Content}" 
+                            HorizontalAlignment="Center"
+            ></ContentControl>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="#2C96FF"/>
+                <Setter TargetName="ContentControl" Property="Foreground" Value="White"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,140 @@
+﻿<Page x:Class="WpfDMS.PatientProfile.PatientProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfDMS.PatientProfile"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="750"
+      Title="PatientProfilePage">
+
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25">Ваша личная страничка</Label>
+
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                <Label>Имя и Фамилия</Label>
+                <TextBox x:Name="NameBox" Height="25" IsReadOnly="True"/>
+            </StackPanel>
+
+            <WrapPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <StackPanel Width="70">
+                    <Label>Возраст</Label>
+                    <TextBox x:Name="AgeBox" Height="25" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Margin="55,0,0,0" Width="150">
+                    <Label>Пол</Label>
+                    <TextBox x:Name="GenderBox" Height="25" IsReadOnly="True"/>
+                </StackPanel>
+            </WrapPanel>
+
+            <StackPanel Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Bottom">
+                <Label>Адрес</Label>
+                <TextBox x:Name="AdressBox" Height="80" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="5" VerticalAlignment="Bottom">
+                <Label>Телефон</Label>
+                <TextBox x:Name="PhoneBox" Height="25" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" VerticalAlignment="Bottom">
+                <Label>Логин</Label>
+                <TextBox x:Name="LoginBox" Height="25" IsReadOnly="True"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="7" VerticalAlignment="Bottom">
+                <Label>Пароль</Label>
+                <TextBox x:Name="PassBox" Height="25" IsReadOnly="True"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25">Список тестов</Label>
+
+            <ListView Grid.Row="1" Margin="10,10,10,0" x:Name="TestList">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Назване" Width="150" DisplayMemberBinding="{Binding Path=t_name}"/>
+                            <GridViewColumn Header="Цена" Width="90" DisplayMemberBinding="{Binding Path=t_price}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Grid.Row="2" x:Name="OrderTest" Width="150" Height="35" 
+                    VerticalAlignment="Top" Margin="0,10,0,0" 
+                    Background="CornflowerBlue"
+                    Foreground="White"
+                    FontSize="15"
+                    Click="OrderTest_OnClick">Заказать тест</Button>
+
+            <Grid x:Name="OrderGrid" Grid.Row="3" Margin="10" DataContext="{Binding ElementName=TestList, Path=SelectedItem}" Visibility="Hidden">
+                <StackPanel>
+                    <WrapPanel Margin="0,10,0,10">
+                        <Label>Название</Label>
+                        <TextBox x:Name="TestNameBox" 
+                                 Text="{Binding Path=t_name}"
+                                 Height="30" Width="150" HorizontalAlignment="Left" IsReadOnly="True"/>
+
+                        <Label>Цена</Label>
+                        <TextBox x:Name="TestPriceBox" 
+                                 Text="{Binding Path=t_price}"
+                                 Height="30" Width="80" HorizontalAlignment="Left" IsReadOnly="True"/>
+                    </WrapPanel>
+
+                    <WrapPanel>
+                        <Label>Ноер карты</Label>
+                        <TextBox x:Name="NumBox" Height="30" Width="200" Margin="15,0,0,0"></TextBox>
+                    </WrapPanel>
+                    <WrapPanel Margin="0,5,0,0">
+                        <Label>Срок карты</Label>
+                        <Label Margin="43,0,0,0">ММ</Label>
+                        <TextBox x:Name="MonthBox" Height="30" Width="50"></TextBox>
+                        <Label Margin="20,0,0,0">ГГ</Label>
+                        <TextBox x:Name="YearBox" Height="30" Width="50"></TextBox>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label>Код CVV</Label>
+                        <TextBox x:Name="CvvBox" Height="30" Width="50" Margin="35,0,0,0"></TextBox>
+                    </WrapPanel>
+
+                    <Button x:Name="PayBtn" Height="35" Width="150" 
+                            Background="CornflowerBlue"
+                            Foreground="White"
+                            FontSize="15"
+                            Margin="0,10,0,0"
+                            Click="PayBtn_OnClick">Оплатить</Button>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

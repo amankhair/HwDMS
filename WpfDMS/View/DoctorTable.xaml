@@ -1,0 +1,91 @@
+﻿<Page x:Class="WpfDMS.View.DoctorTable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfDMS.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="490" d:DesignWidth="750"
+      Title="DoctorTable">
+
+    <Grid Background="Gainsboro">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <ListView x:Name="DoctorList">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Path=d_id}"/>
+                            <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Path=d_name}"/>
+                            <GridViewColumn Header="Age" Width="70" DisplayMemberBinding="{Binding Path=d_age}"/>
+                            <GridViewColumn Header="Gender" Width="70" DisplayMemberBinding="{Binding Path=d_gender}"/>
+                            <GridViewColumn Header="Adress" Width="100" DisplayMemberBinding="{Binding Path=d_adress}"/>
+                            <GridViewColumn Header="Phone" Width="80" DisplayMemberBinding="{Binding Path=d_phone}"/>
+                            <GridViewColumn Header="Login" Width="100" DisplayMemberBinding="{Binding Path=d_login}"/>
+                            <GridViewColumn Header="Password" Width="90" DisplayMemberBinding="{Binding Path=d_password}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+        <Grid x:Name="GridBoxes" Grid.Row="1" Margin="10,5,10,10" DataContext="{Binding ElementName=DoctorList, Path=SelectedItem}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Имя и фамилия</Label>
+                <TextBox x:Name="DocNameBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_name}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Возраст</Label>
+                <TextBox x:Name="DocAgeBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_age}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Пол</Label>
+                <TextBox x:Name="DocGenBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_gender}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Адрес</Label>
+                <TextBox x:Name="DocAdressBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_adress}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Телефон</Label>
+                <TextBox x:Name="DocPhoneBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_phone}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Логин</Label>
+                <TextBox x:Name="DocLoginBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_login}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom">
+                <Label FontWeight="Bold">Пароль</Label>
+                <TextBox x:Name="DocPassBox" Height="40" Margin="0,0,10,0" Text="{Binding Path=d_password}"></TextBox>
+            </StackPanel>
+
+            <Button x:Name="AddDoctor" Grid.Row="0" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="AddDoctor_OnClick">Добавить</Button>
+
+            <Button x:Name="DeleteDoctor" Grid.Row="1" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="DeleteDoctor_OnClick">Удалить</Button>
+
+            <Button x:Name="UpdateBtn" Grid.Row="2" Grid.Column="2" Width="150" Height="40" VerticalAlignment="Bottom" Cursor="Hand" Background="LightSkyBlue" FontSize="15" Click="UpdateBtn_OnClick">Обновить</Button>
+        </Grid>
+    </Grid>
+</Page>
